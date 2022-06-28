@@ -1,0 +1,437 @@
+//mixin
+@mixin sm-button{
+    border-radius: 10px;
+    padding: 2px;
+     /* height: 50px;
+      width: 50px;*/
+i{
+    color: #ffffff;
+    font-size: 17px;
+}
+}
+.content-container{
+    margin-top: 20px;
+    display: flex;
+    flex: 1 1 auto;
+background-color: #fcfcfc;
+    margin-right: 100px;
+    margin-left: 100px;
+    padding: 20px;
+}
+.--content-title{
+   h1{
+       margin: 5px;
+   }
+    text-align: center;
+   
+}
+.post-detail{
+    text-align: center;
+    li{
+        display: inline-block;
+        list-style: none;
+        padding: 8px 10px;
+    }
+    a{
+        color: rgb(1, 170, 1);
+        text-decoration: none;
+    }
+}
+.--content{
+width: 70%;
+flex-wrap: wrap;
+
+}
+.post-thumbnail{
+    img{
+        height: 500px;
+        width: 100%;
+    }
+    small{
+        color:#d4d4d4;
+        text-align: center;
+    }
+}
+.side-bar{
+    margin-left: 20px;
+   width: 350px;
+   //overflow: hidden;
+
+}
+#f-letter::first-letter{
+    
+        font-size: 50px;
+}
+#f-letter{
+    line-height: 30px;
+   // font-size: 20px;
+    word-spacing: 0.05em;
+}
+.newsletter{
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+
+    background-color: #CB0101;
+    color: white;
+    padding: 10px;
+    width: 320px;
+    //position: fixed;
+  
+    h1{
+        text-align: center;
+    }
+}
+.newsletter-form{
+    display: block;
+}
+.form-group{
+    align-items: center;
+    padding: 10px;
+    button{
+        background-color: rgb(13, 75, 243);
+        border:none;
+        border-radius: 5px;
+        color: white;
+        padding: 10px;
+        width: 100%;
+        font-size: 15px;
+    }
+
+    input{
+        width:90%;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #eee;
+    }
+}
+.--grid-column{
+    margin-bottom: 10px;
+    display: grid;
+    gap:10px;
+    //grid-column: auto;
+     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+.column-card{
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+
+    background-color: #ffffff;
+    padding: 8px;
+    flex-wrap: wrap;
+    span{
+        margin-top: 5px;
+        padding: 8px;
+        background-color: #CB0101;
+        color: #eee;
+    }
+    a{
+        color: #121212;
+        text-decoration: none;
+    }
+}
+.share-button{
+    text-align: center;
+}
+.share-list{
+    list-style: none;
+    display: inline-block;
+    padding: 4px;
+    small{
+        color: #ffffff;
+    }
+    a{
+color:#ffffff;
+    text-decoration:none;
+    }
+}
+.whatsapp{
+    background-color: #05ca15;
+    @include sm-button();
+    a{
+        color:#ffff;
+    }
+  
+    }
+
+.facebook{
+    background-color: #0044c2;
+    border-radius: 50%;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+i{
+  color: #ffffff;
+  font-size: 17px;
+}}
+
+.twitter{
+    background-color: #028edf;
+    @include sm-button();
+}
+
+.ig{
+    background-color: #f30a3c;
+    @include sm-button();
+}
+
+.linkedin{
+    background-color: #063a9c;
+    @include sm-button();
+}
+.link{
+    background-color: #171817;
+  @include sm-button();
+    color: #ffffff;
+
+    i{
+        color: #ffffff;
+       // font-size: 20px;
+
+    }
+}
+.comment-area{
+    border-top: 2px solid #eee;
+}
+.comment-tab{
+    th{
+        padding: 10px 12px;
+    }
+}
+.active-comment-tab{
+    border-bottom: 2px solid #eee;
+    transition: border 1s;
+
+}
+#comment-form, #comment-list{
+cursor: pointer;
+}
+/**Dark mode**/
+@media (prefers-color-scheme: dark) {
+    .newsletter, .column-card{
+        color: #eee;
+    background-color: #1f1d1d;
+    }
+    .whatsapp, .twitter, .linkedin, .ig, .facebook{
+        background-color: #171817;
+        color: #ffffff;
+
+    }
+    .content-container{
+        color: #eee;
+    background-color: #1f1d1d;
+    }
+    .form-container{
+        background-color: #272626 !important;
+
+    }
+    .reply-btn{
+        color: #eee;
+    }
+    .reply-block::before{
+        background-color: #eee !important;
+        opacity:0.4;
+    }  
+}
+.form-container{
+    width: 600px;
+    background-color: #f7f4f4;
+    padding:10px;
+    p{
+        color: #ff0606;
+    }
+}
+.form-item{
+    margin-bottom: 5px;
+   textarea, input[type=email],input[type=text]{
+        padding: 10px;
+        width: 500px;
+        border: 1px solid #e2e2e2;
+        border-radius: 5px;
+    }
+    textarea:focus, input:focus{
+border: 1px solid #0044c2;
+outline-style: none;
+    }
+    button{
+        border-radius: 8px;
+        border: none;
+        background-color: #0044c2;
+        color: #ffffff;
+        padding: 10px;
+    }
+}
+.comment-list{
+    width: 600px;
+    margin: 0;
+    padding: 0;
+   // display: flex;
+}
+.op-detail{
+    span{
+        position: absolute;
+        padding-left: 10px;
+    }
+    small{
+        opacity: 0.8;
+    }
+}
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+}
+
+.comment-text{
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    left: 60px;
+    bottom:50px;
+   // padding-left: 50px;
+   //position: relative;
+   
+}
+.comment-item{
+   // height: 300px;
+    flex-wrap: wrap;
+}
+.reply-btn{
+    background-color: transparent;
+    border: none;
+    opacity: 0.7;
+    cursor: pointer;
+}
+.reply{
+    padding-left: 100px;
+}
+.reply-item{
+    left: 50px;
+    position: relative;
+    top:0;
+}
+.reply-block::before{
+content: "";
+width: 2px;
+height: 200px;
+opacity: 0.3;
+display: block;
+background-color: #000000;
+position: absolute;
+//top:2px;
+//overflow: hidden;
+//bottom: 0;
+margin-left: 30px;
+}
+#close-reply{
+    //position: absolute;
+    color:#CB0101;
+    font-size: 20px;
+   background-color: transparent;
+   border: none;
+}
+.fa-comments, .fa-comment-dots{
+    opacity: 0.4;
+}
+/**mobile screen**/
+@media (max-width:740px) {
+    .content-container{
+        display: block;
+       // flex: 1 1 auto;
+    background-color: #fcfcfc;
+        margin-right: 2px;
+        margin-left: 2px;
+        padding: 5px;
+    }
+    .side-bar{
+        display: block;
+    }
+    .comment-list{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+       // display: flex;
+    }
+    .form-container{
+       // width: 100%;
+       width: auto;
+        background-color: #f7f4f4;
+        padding:10px;
+        p{
+            color: #ff0606;
+        }
+    }
+    .form-item{
+        margin-bottom: 5px;
+       textarea, input[type=email],input[type=text]{
+            padding: 10px;
+            width: 90%;
+            border: 1px solid #e2e2e2;
+            border-radius: 5px;
+        }
+    }
+    .--content{
+        width: 100%;
+        flex-wrap: wrap;
+        
+        }
+        .comment-text{
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+            left: 20px;
+            bottom:0;
+           // padding-left: 50px;
+           //position: relative;
+           
+        }
+        .reply-block::before{
+            content: "";
+            width: 2px;
+            height: 200px;
+            opacity: 0.3;
+            display: block;
+            background-color: #000000;
+            position: absolute;
+            //top:2px;
+            //overflow: hidden;
+            //bottom: 0;
+            margin-left: 5px;
+            }
+            .reply{
+                padding-left: 0;
+            }
+            .reply-item{
+                left: 3px;
+                position: relative;
+                top:0;
+                flex-wrap: wrap;
+            }
+}
+@media (min-width:768px) and (max-width:1024px) {
+    .content-container{
+        display: flex;
+        flex-direction: column;
+      //  flex: 1 1 auto;
+    background-color: #fcfcfc;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 20px;
+    }
+    .--content{
+        width: 100%;
+        flex-wrap: wrap;
+        
+        }
+        .side-bar{
+            margin-left: 0;
+           width: 100%;
+           //overflow: hidden;
+        
+        }
+        .newsletter{
+            width: 90%;
+            //padding: 10px;
+            p{
+                text-align: center;
+            }
+        }
+}
