@@ -23,6 +23,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body <?php if(isset($_COOKIE['theme-color'])){
 echo 'class="'.$_COOKIE['theme-color'].'"';
 }
+
 ?>>
   <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
@@ -70,7 +71,7 @@ window.twttr = (function(d, s, id) {
 <div class="logo-mobile">
 <!--theme logo goes here-->
 <a href="/">
-<img src="<?php echo get_theme_file_uri('./asset/flourish-times-logo-white-new.png') ?>"
+<img src="<?php echo get_theme_file_uri('./asset/ftlogo.png') ?>"
 alt="flourish times logo">
 </a>
 </div>

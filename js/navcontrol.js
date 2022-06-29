@@ -156,7 +156,7 @@ item.trim().startsWith(`${cname}=`))){
 })
 /**@getCookie gets a cookie with the cookie name */
 
-const getCookie = ((cname)=>{
+/*const getCookie = ((cname)=>{
 try{
  const cookieValue = document.cookie.split('; ').find(row => row.startsWith(`${cname}=`)).split('=')[1];
  return decodeURIComponent(cookieValue);
@@ -164,11 +164,11 @@ try{
 }
 catch(undefined){
  /* const cookieValue = document.cookie.split('; ').find(row => row.startsWith(`${cname}=`)).split('=')[1];
- return decodeURIComponent(cookieValue);*/
+ return decodeURIComponent(cookieValue);
  setCookie('theme-color','dark-theme',360);
 
 }
-})
+})*/
 
 
 
@@ -211,7 +211,7 @@ document.getElementById('my-comment').addEventListener('submit',(e)=>{
 }*/
 //**Toggle between light and darkmode*/
 //Dark mode button
-let themeModeBtn = document.querySelector('#theme-toggle');
+//let themeModeBtn = document.querySelector('#theme-toggle');
 //Listen for a click on the theme mode toggle button
 ////console.log('welcome');
 /*
@@ -229,7 +229,7 @@ catch(undefined){
   setCookie('theme-color','none',360);
 
 }*/
-themeModeBtn.addEventListener('change',()=>{
+/*themeModeBtn.addEventListener('change',()=>{
 
   if(!this.checked){
     try{
@@ -239,28 +239,58 @@ themeModeBtn.addEventListener('change',()=>{
     if( getCookie('theme-color') ==="dark-theme"){
         
   
-    deleteCookie('theme-color');
+   // deleteCookie('theme-color');
+  
     document.body.classList.remove('dark-theme');
     //uncheck theme mode button
     document.querySelector('[name=theme-color]').setAttribute('content', '#CB0101');
 
   themeModeBtn.checked = false;
+     //send ajax request to unset cookie
+
+  jQuery.ajax({
+    type:'post',
+    url:localize._theme_url,
+    //dataType:'json',
+    //data:{action:'save_newsletter_subscriber',email:email}
+    
+}).done((resp)=>{
+console.debug(resp)
+})
      }
 //if the theme is not in dark mode switch to dark mode
      else{
       document.body.classList.toggle('dark-theme');
-      setCookie('theme-color','dark-theme',360);
+      //setCookie('theme-color','dark-theme',360);
       document.querySelector('[name=theme-color]').setAttribute('content', '#121212');
-
+   //send ajax request to unset cookie
+   jQuery.ajax({
+    type:'post',
+    url:localize._theme_url,
+    //dataType:'json',
+    //data:{action:'save_newsletter_subscriber',email:email}
+    
+}).done((resp)=>{
+console.debug(resp)
+})
      }
 
   }//if their is no theme-color in the cookie set it and switch to dartheme
   catch(undefined){
     document.body.classList.toggle('dark-theme');
-    setCookie('theme-color','dark-theme',360);
+   // setCookie('theme-color','dark-theme',360);
     themeModeBtn.checked = true;
     document.querySelector('[name=theme-color]').setAttribute('content', '#121212');
-
+    //send ajax request to change theme mode
+    jQuery.ajax({
+      type:'post',
+      url:localize._theme_url,
+      //dataType:'json',
+      //data:{action:'save_newsletter_subscriber',email:email}
+      
+  }).done((resp)=>{
+  console.log(resp)
+  })
 
   }
 }
@@ -282,8 +312,10 @@ try{
   catch(e){
      
   }
+*/
+/***dark theme mode */
 
-  
+
 /**check if user is a subscriber */
 //console.log(getCookie('isSubscriber'))
 try{

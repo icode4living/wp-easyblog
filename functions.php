@@ -51,7 +51,7 @@ function  easy_blog_script(){
         wp_enqueue_style( 'mobile-style', get_template_directory_uri().'/css/mobile.style.css',array(),
         '1.3','all');
        
-        wp_enqueue_script('nav-control',get_template_directory_uri().'/js/navcontrol.js',
+        wp_enqueue_script('navcontrol',get_template_directory_uri().'/js/navcontrol.js',
         array(), 1.1,true);
         wp_enqueue_script('app',get_template_directory_uri().'/js/app.js',
         array(), 1.1,true);
@@ -64,6 +64,12 @@ function  easy_blog_script(){
         /**Ajax form */
         wp_localize_script( 'control', 'localize', array( '_ajax_url' => admin_url( 'admin-ajax.php' ),
         '_ajax_nonce'=> wp_create_nonce( '_ajax_nonce' )));
+        //Theme mode switching ajax script
+        wp_enqueue_script('switchtheme',get_template_directory_uri().'/js/switchtheme',
+        array('jquery'), ' ',true);
+        wp_localize_script( 'switchtheme', 'localize', array( '_object_url' => admin_url( 'admin-ajax.php' ),
+        '_object_nonce'=> wp_create_nonce( '_object_nonce' )));
+        //set_dark_theme
         }
     
         add_action('wp_enqueue_scripts','easy_blog_script');
@@ -196,6 +202,7 @@ echo 'newsletter success';
 add_action( 'wp_ajax_nopriv_save_newsletter_subscriber', 'save_newsletter_subscriber' );
 add_action( 'wp_ajax_save_newsletter_subscriber', 'save_newsletter_subscriber' );
 
+
  //clean form
  function test_input($data) {
   $data = trim($data);
@@ -322,17 +329,40 @@ return $result;
 add_action('init','push_messenger_manager');
 //set dark theme ajax
 function set_dark_theme(){
-
   // Check if action was fired via Ajax call. If yes, JS code will be triggered, else the user is redirected to the post page
     // Check if action was fired via Ajax call. If yes, JS code will be triggered, else the user is redirected to the post page
- if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-   $result = json_encode($result);
-   echo $result;
-}
-else {
-   header("Location: ".$_SERVER["HTTP_REFERER"]);
-}
+   /* if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+      $result = json_encode($result);
+      echo $result;
+   }
+   else {
+      header("Location: ".$_SERVER["HTTP_REFERER"]);
+   }*/
+   set_theme_cookie();
 
-}
+      //change theme color by removing cookie if it exists*/
+$theme_mode = $_COOKIE['theme-color'];
 
+ echo   $theme_mode;
+}
+add_action( 'wp_ajax_nopriv_set_dark_theme', 'set_dark_theme' );
+add_action( 'wp_ajax_set_dark_theme', 'set_dark_theme' );
+//function to set cookie
+
+function set_theme_cookie(){
+  $cookie_value = 'dark-theme';
+  if(isset($_COOKIE['theme-color'])) {
+    unset($_COOKIE['theme-color']);
+  }
+  if(!isset($_COOKIE['theme-color'])) {
+  
+    //delete cookie
+    setcookie('theme-color', $cookie_value, time()+31556926); 
+  
+  
+    } 
+
+   
+    
+}
  ?>

@@ -44,7 +44,7 @@ echo 'class="'.$_COOKIE['theme-color'].'"';
 <div class="logo-mobile">
 <!--theme logo goes here-->
 <a href="/">
-<img src="<?php echo get_theme_file_uri('./asset/flourish-times-logo-white-new.png') ?>"
+<img src="<?php echo get_theme_file_uri('./asset/ftlogo.png') ?>"
 alt="flourish times logo">
 </a>
 </div>
