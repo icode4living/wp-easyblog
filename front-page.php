@@ -5,7 +5,6 @@ get_header( 'home' );
 endif;
 ?>
 <main>
-<?php if ( has_post_thumbnail()): ?>
 
 <section class="top-panel">
 <!--Display latest news-->
@@ -15,6 +14,8 @@ endif;
   'orderby'=> 'title');
     $the_query1 =  new WP_Query($args1);
     ?>
+    <?php if ($the_query1->has_post_thumbnail()): ?>
+
 <?php while($the_query1->have_posts()): $the_query1-> the_post(); ?>
 
 <div class="slide-item" style="--background: url('<?php the_post_thumbnail_url() ?>')">
@@ -63,6 +64,7 @@ wp_reset_postdata();
 
 <article  class="grid-article" style="--background: url('<?php the_post_thumbnail_url() ?>')">
 <div class="grid-text">
+  
 <a href="<?php the_permalink() ?>" >
 <h1><?php the_title() ?></h1>
 </a>
@@ -113,7 +115,8 @@ wp_reset_postdata();
 <?php
     //The Query
     $args4 = array('category_name'=>'breaking',
-'order'=>'ASC','posts_per_page'=>5);
+'order'=>'ASC','posts_per_page'=>5,
+'date_query'=>array(array('after'=>'24 hours ago')));
     $the_query4 = new WP_Query($args4);
    ?>
 <div class="column-container"  id="column-container">
@@ -121,8 +124,14 @@ wp_reset_postdata();
     <h1>Breaking News</h1>
   </div>
   <?php  if(have_posts()):while($the_query4->have_posts()):$the_query4->the_post(); ?>
+  <?php 
+
+    ?>
   <article class="column-card-2">
     <div class="text-section">
+   
+
+
   <h3>
     <a href="<?php the_permalink()?>"><?php the_title() ?></a></h3>
     </div>

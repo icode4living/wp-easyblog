@@ -6,14 +6,14 @@ if(!this.checked){
   document.querySelector('[name=theme-color]').setAttribute('content', '#CB0101');
  // themeModeBtn.checked = false;
  jQuery.ajax({
-  type:'post',
-  contentType: "text/plain",
+  //type:'post',
+ /* contentType: "text/plain",
     xhrFields: {
          withCredentials: true
     },
     crossDomain: true,
   url:localize._object_url,
-  //dataType:'json',
+  //dataType:'json',*/
   data:{action:'set_dark_theme'}
   
 }).done((resp)=>{

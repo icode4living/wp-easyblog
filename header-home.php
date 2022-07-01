@@ -22,8 +22,8 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     overflow-x: hidden;
 }
   </style>
-<body <?php if(isset($_COOKIE['theme-color'])){
-echo 'class="'.$_COOKIE['theme-color'].'"';
+<body <?php if(isset($_COOKIE['theme-mode'])){
+echo 'class="'.$_COOKIE['theme-mode'].'"';
 }
 ?>>
 <header>
@@ -56,7 +56,7 @@ alt="flourish times logo">
 <nav class="logo">
 <!--theme logo goes here-->
 <a href="/">
-<img src="<?php echo get_theme_file_uri('./asset/flourish-times-logo-white-new.png') ?>"
+<img src="<?php echo get_theme_file_uri('./asset/ftlogo.png') ?>"
 alt="flourish times logo">
 </a>
 </nav>

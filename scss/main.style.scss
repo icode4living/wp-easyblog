@@ -180,7 +180,7 @@ padding: 20px;
 }
 .nav-menu{
 
-    height: 60px;
+    height: 100px;
     width: 100%;
     background-color: $theme-color;
     nav{
@@ -202,6 +202,10 @@ padding: 20px;
     display: inline-block;
 
   } 
+  img{
+    height: 50px;
+    width: 100px;
+  }
   
 }
 .logo-mobile{

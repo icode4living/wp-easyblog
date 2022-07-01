@@ -351,13 +351,13 @@ add_action( 'wp_ajax_set_dark_theme', 'set_dark_theme' );
 
 function set_theme_cookie(){
   $cookie_value = 'dark-theme';
-  if(isset($_COOKIE['theme-color'])) {
-    unset($_COOKIE['theme-color']);
+  if(isset($_COOKIE['theme-mode'])) {
+    unset($_COOKIE['theme-mode']);
   }
   if(!isset($_COOKIE['theme-color'])) {
   
     //delete cookie
-    setcookie('theme-color', $cookie_value, time()+31556926); 
+    setcookie('theme-mode', $cookie_value, time()+31556926); 
   
   
     } 
@@ -365,4 +365,15 @@ function set_theme_cookie(){
    
     
 }
+//this function removes old theme cookie
+function remove_old_theme_cookie(){
+  if(isset($_COOKIE['theme-color'])) {
+    unset($_COOKIE['theme-color']);
+  }
+  
+
+    
+}
+add_action( 'init', 'remove_old_theme_cookie' );
+
  ?>
